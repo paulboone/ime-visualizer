@@ -119,9 +119,19 @@ def create_figure(m, m_source, columns):
             hover_color='white', hover_alpha=0.7,
             source=m_source)
 
+    fs = "1.3em"
     if mapper:
         color_bar = ColorBar(color_mapper=mapper['transform'], width=8,  location=(0,0))
+        color_bar.major_label_text_font_size = fs
+        color_bar.major_label_text_align = "left"
         p.add_layout(color_bar, 'right')
+
+
+    p.yaxis.axis_label_text_font_size = fs
+    p.yaxis.major_label_text_font_size = fs
+    p.xaxis.axis_label_text_font_size = fs
+    p.xaxis.major_label_text_font_size = fs
+    p.title.text_font_size = fs
 
     return p
 
