@@ -71,13 +71,13 @@ def create_figure(m, m_source, columns):
 
     tooltips = [
         ("id", "@id"),
-        (x.value, "@" + x.value),
-        (y.value, "@" + y.value)
+        (x.value, "@{%s}" % x.value),
+        (y.value, "@{%s}" % y.value)
     ]
     if color.value != 'None':
-        tooltips += [(color.value, "@" + color.value)]
+        tooltips += [(color.value, "@{%s}" % color.value)]
     if size.value != 'None':
-        tooltips += [(size.value, "@" + size.value)]
+        tooltips += [(size.value, "@{%s}" % size.value)]
 
     x_range = range_defaults[x.value] if x.value in range_defaults else None
     y_range = range_defaults[y.value] if y.value in range_defaults else None
