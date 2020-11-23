@@ -6,7 +6,7 @@ import pandas as pd
 
 from bokeh.layouts import column, row
 from bokeh.models import Select, ColumnDataSource, ColorBar
-from bokeh.palettes import Viridis5, Viridis8
+from bokeh.palettes import Viridis5, Viridis8, Cividis8, Cividis5
 from bokeh.plotting import curdoc, figure
 from bokeh.transform import linear_cmap
 from bokeh.models.widgets import Slider
@@ -56,8 +56,8 @@ def load_data(path):
     return m, m_source, columns
 
 colormap_overrides = {
-    'num atoms': dict(palette=Viridis8),
-    'max pair distance': dict(palette=Viridis5, low=0, high=0.5)
+    'num atoms': dict(palette=Cividis8),
+    'max pair distance': dict(palette=Cividis5, low=0, high=0.5)
     # 'epsilon_density': dict(palette=Viridis5, low=0, high=0.5)
 }
 
@@ -103,7 +103,7 @@ def create_figure(m, m_source, columns):
         if color.value in colormap_overrides:
             colormap_args = colormap_overrides[color.value]
         else:
-            colormap_args = dict(palette=Viridis5)
+            colormap_args = dict(palette=Cividis5)
 
         if 'low' not in colormap_args:
             colormap_args['low'] = m[color.value].min()
