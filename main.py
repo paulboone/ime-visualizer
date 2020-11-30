@@ -158,11 +158,12 @@ def update(attr, old, new):
     print('layout updated')
 
 
-datasets = ["parameter-explorations", "degrees-of-freedom"]
+datasets = ["parameter-explorations", "degrees-of-freedom", "density" ]
 data_files = {k:sorted([splitext(basename(f))[0] for f in glob("./data/%s/*.csv" % k)]) for k in datasets}
 default_data_file = {
     "parameter-explorations": "reference baseline",
-    "degrees-of-freedom": "IME   1site"
+    "degrees-of-freedom": "IME   1site",
+    "density": "site-density-random"
 }
 
 m, m_source, columns = load_data("./data/parameter-explorations/reference baseline.csv")
